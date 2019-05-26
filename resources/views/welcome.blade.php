@@ -38,7 +38,7 @@
                             @if ($isadmin == 1)
                             <i class="fas fa-hammer fa-4x"></i>
                             @else
-                            <i class="fas fa-sync fa-4x"></i>
+                            {{-- <i class="fas fa-sync fa-4x"></i> --}}
                             @endif
                         </div>
 
@@ -59,8 +59,8 @@
                             <br><br>Klicken um auf "Geöffnet" zu wechseln
                             <br><br>
                             @elseif ($isadmin == 0)
-                            <br><br>Klicken zum Aktualisieren
-                            <br><br>
+                            {{-- <br><br>Klicken zum Aktualisieren
+                            <br><br> --}}
                             @endif
                         </div>
 
@@ -68,7 +68,7 @@
                             @if ($isadmin == 1)
                             <i class="fas fa-hammer fa-4x"></i>
                             @else
-                            <i class="fas fa-sync fa-4x"></i>
+                            {{-- <i class="fas fa-sync fa-4x"></i> --}}
                             @endif
                         </div>
                     </div>
