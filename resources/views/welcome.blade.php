@@ -16,9 +16,9 @@
     <body>
             <div>
                 @if ($geeoffnet->offen == 1)
-                    <button type="button" class="btn btn-success btn-lg btn-block">Das Schwimmbad Ebrach ist gerade geöffnet!</button>
+                    <button type="button" class="btn btn-success btn-lg btn-block">Das Schwimmbad Ebrach <br>ist gerade geöffnet!</button>
                 @else
-                    <button type="button" class="btn btn-danger  btn-lg btn-block">Das Schwimmbad Ebrach ist gerade geschlossen!</button>
+                    <button type="button" class="btn btn-danger  btn-lg btn-block">Das Schwimmbad Ebrach <br>ist gerade geschlossen!</button>
                 @endif
             </div>
         </div>
