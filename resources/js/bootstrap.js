@@ -61,17 +61,11 @@ channel.bind('geoffnet-event', function(message) {
 
         if (permission === "granted")
         {
-            alert('OKOKOKOKOK');
             var notification = new Notification('New alert!', 
             {
-                body: "1231428zrlqauhwfl8za3pf2qzf", // content for the alert
-                icon: "https://pusher.com/static_logos/320x320.png" // optional image url
+                body: "1231428zrlqauhwfl8za3pf2qzf" // content for the alert
             });
-            alert('GOGOGOGOGOGO');
-        }
-        else
-        {
-            alert('NONONONO');
+            
         }
     });
 });
