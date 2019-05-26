@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $geeoffnet = \App\Geeoffnet::first();
+    return view('welcome', compact('geeoffnet'));
 });
