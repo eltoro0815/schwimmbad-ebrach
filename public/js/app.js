@@ -58235,19 +58235,7 @@ var pusher = new Pusher('a756753461ffa40e21fa', {
 });
 var channel = pusher.subscribe('geoffnet-changed');
 channel.bind('geoffnet-event', function (message) {
-  if (!('Notification' in window)) {
-    alert('Web Notification is not supported');
-    return;
-  }
-
-  Notification.requestPermission(function (permission) {
-    if (permission === "granted") {
-      var notification = new Notification('New alert!', {
-        body: "1231428zrlqauhwfl8za3pf2qzf" // content for the alert
-
-      });
-    }
-  });
+  location.reload();
 });
 
 /***/ }),
