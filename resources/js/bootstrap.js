@@ -42,7 +42,7 @@ if (token) {
 
 window.Pusher = require('pusher-js');
 
-Pusher.logToConsole = true;
+//Pusher.logToConsole = true;
 
 var pusher = new Pusher('a756753461ffa40e21fa', {
     cluster: 'eu',
@@ -51,21 +51,27 @@ var pusher = new Pusher('a756753461ffa40e21fa', {
 
 var channel = pusher.subscribe('geoffnet-changed');
 channel.bind('geoffnet-event', function(message) {
+
     if (! ('Notification' in window)) {
         alert('Web Notification is not supported');
         return;
     }
 
     Notification.requestPermission( permission => {
-        let notification = new Notification('New GeöffnetChanged alert!', 
-        {
-            body: message, // content for the alert
-            icon: "https://pusher.com/static_logos/320x320.png" // optional image url
-        });
 
-        // link to page on clicking the notification
-        notification.onclick = () => {
-            window.open(window.location.href);
-        };
+        if (permission === "granted")
+        {
+            alert('OKOKOKOKOK');
+            var notification = new Notification('New alert!', 
+            {
+                body: "1231428zrlqauhwfl8za3pf2qzf", // content for the alert
+                icon: "https://pusher.com/static_logos/320x320.png" // optional image url
+            });
+            alert('GOGOGOGOGOGO');
+        }
+        else
+        {
+            alert('NONONONO');
+        }
     });
 });
