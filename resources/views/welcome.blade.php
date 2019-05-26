@@ -16,23 +16,63 @@
 </head>
 
 <body>
-    <div>
-        <form action="{{ $url }}">
-            @if ($isadmin == 1)
-            <input type="hidden" name="admin" value="true">
-            <input type="hidden" name="change" value="true">
-            @endif
 
-            @if ($geeoffnet->offen == 1)
-            <button type="submit" class="btn btn-success btn-lg btn-block">Das Schwimmbad Ebrach
-                <br>ist gerade geöffnet!</button>
-            @else
-            <button type="submit" class="btn btn-danger  btn-lg btn-block">Das Schwimmbad Ebrach
-                <br>ist gerade geschlossen!</button>
-            @endif
-        </form>
-    </div>
-    </div>
+    <form action="{{ $url }}">
+        @if ($isadmin == 1)
+        <input type="hidden" name="admin" value="true">
+        <input type="hidden" name="change" value="true">
+        @endif
+
+        @if ($geeoffnet->offen == 1)
+            <button type="submit" class="btn btn-success btn-lg btn-block">
+        @else 
+            <button type="submit" class="btn btn-danger  btn-lg btn-block">
+        @endif
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-3 align-self-center">
+                        @if ($isadmin == 1)
+                        <i class="fas fa-hammer fa-4x"></i>
+                        @else 
+                        <i class="fas fa-sync fa-4x"></i>
+                        @endif
+                    </div>
+
+                    <div class="col-6">
+
+                            <br>Das Schwimmbad Ebrach
+                            @if ($geeoffnet->offen == 1)
+                                <br>ist gerade geöffnet!
+                            @else
+                                <br>ist gerade geschlossen!
+                            @endif
+
+                            @if ($isadmin == 1 && $geeoffnet->offen == 1)
+
+                                <br><br>Klicken um auf "Geschlossen" zu wechseln
+                                <br><br>
+                            @elseif ($isadmin == 1 && $geeoffnet->offen == 0)
+                                <br><br>Klicken um auf "Geöffnet" zu wechseln
+                                <br><br>
+                            @elseif ($isadmin == 0)
+                                <br><br>Klicken zum Aktualisieren
+                                <br><br>
+                            @endif
+                    </div>
+
+                    <div class="col-3 align-self-center">
+                        @if ($isadmin == 1)
+                        <i class="fas fa-hammer fa-4x"></i>
+                        @else 
+                        <i class="fas fa-sync fa-4x"></i>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </button>
+    </form>
+
 </body>
 
 </html>
