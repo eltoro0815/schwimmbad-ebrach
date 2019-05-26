@@ -13,11 +13,21 @@
 
 Route::get('/', function () {
     $geeoffnet = \App\Geeoffnet::first();
-
+    $dochange = request()->input('change') == "true";
     $isadmin = request()->input('admin') == "true";
+    
+    if ($dochange && $isadmin)
+    {
+        $geeoffnet->offen = !$geeoffnet->offen;
+        $geeoffnet->save();
+    }
+    
+
+    $url = url()->current();
 
     return view('welcome', [
         'geeoffnet' => $geeoffnet,
-        'isadmin' => $isadmin
+        'isadmin' => $isadmin,
+        'url' => $url
     ]);
 });
