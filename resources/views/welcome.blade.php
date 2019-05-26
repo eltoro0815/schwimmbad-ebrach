@@ -60,7 +60,8 @@
                             <br><br>
                             @elseif ($isadmin == 0)
                             {{-- <br><br>Klicken zum Aktualisieren
-                            <br><br> --}}
+                            <br>--}}
+                            <br>
                             @endif
                         </div>
 
