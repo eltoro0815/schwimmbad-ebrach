@@ -69,26 +69,3 @@ channel.bind('geoffnet-event', function(message) {
         };
     });
 });
-
-/*
- Echo.channel('geoffnet-changed')
- .listen('GeeoffnetChanged', message => 
- {
-    if (! ('Notification' in window)) {
-        alert('Web Notification is not supported');
-        return;
-    }
-
-    Notification.requestPermission( permission => {
-        let notification = new Notification('New GeöffnetChanged alert!', 
-        {
-            body: message, // content for the alert
-            icon: "https://pusher.com/static_logos/320x320.png" // optional image url
-        });
-
-        // link to page on clicking the notification
-        notification.onclick = () => {
-            window.open(window.location.href);
-        };
-    });
-})*/
