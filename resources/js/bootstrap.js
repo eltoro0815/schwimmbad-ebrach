@@ -37,19 +37,58 @@ if (token) {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
 
-import Echo from 'laravel-echo'
+// PUSHER
 
 window.Pusher = require('pusher-js');
 
-window.Echo = new Echo({
-     broadcaster: 'pusher',
-     key: 'a756753461ffa40e21fa',
-     cluster: 'eu',
-     encrypted: true
- });
+Pusher.logToConsole = true;
+
+var pusher = new Pusher('a756753461ffa40e21fa', {
+    cluster: 'eu',
+    forceTLS: true
+});
+
+var channel = pusher.subscribe('geoffnet-changed');
+channel.bind('geoffnet-event', function(message) {
+    if (! ('Notification' in window)) {
+        alert('Web Notification is not supported');
+        return;
+    }
+
+    Notification.requestPermission( permission => {
+        let notification = new Notification('New GeöffnetChanged alert!', 
+        {
+            body: message, // content for the alert
+            icon: "https://pusher.com/static_logos/320x320.png" // optional image url
+        });
+
+        // link to page on clicking the notification
+        notification.onclick = () => {
+            window.open(window.location.href);
+        };
+    });
+});
+
+/*
+ Echo.channel('geoffnet-changed')
+ .listen('GeeoffnetChanged', message => 
+ {
+    if (! ('Notification' in window)) {
+        alert('Web Notification is not supported');
+        return;
+    }
+
+    Notification.requestPermission( permission => {
+        let notification = new Notification('New GeöffnetChanged alert!', 
+        {
+            body: message, // content for the alert
+            icon: "https://pusher.com/static_logos/320x320.png" // optional image url
+        });
+
+        // link to page on clicking the notification
+        notification.onclick = () => {
+            window.open(window.location.href);
+        };
+    });
+})*/

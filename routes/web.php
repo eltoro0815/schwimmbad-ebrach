@@ -11,6 +11,8 @@
 |
 */
 
+use App\Events\GeeoffnetChanged;
+
 Route::get('/', function () {
     $geeoffnet = \App\Geeoffnet::first();
     $dochange = request()->input('change') == "true";
@@ -29,7 +31,19 @@ Route::get('/', function () {
         else {
             $message = "Das Schwimmbad Ebrach hat gerade geschlossen";
         }
-        event(new GeeoffnetChanged($message));
+
+        $options = array(
+            'cluster' => 'eu',
+            'useTLS' => true
+          );
+        $pusher = new Pusher\Pusher(
+            'a756753461ffa40e21fa',
+            '1a7675ceb9c2b55af106',
+            '790650',
+            $options
+        );
+
+        $pusher->trigger('geoffnet-changed', 'geoffnet-event', $message);
     }
     
 
