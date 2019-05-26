@@ -11,23 +11,14 @@
 
         <link href="css/app.css" rel="stylesheet" type="text/css" >
 
-        <!-- Styles -->
-        <style>
-           
-            .content {
-                text-align: center;
-            }
-
-           
-        </style>
+       
     </head>
     <body>
-
-            <div class="content">
+            <div>
                 @if ($geeoffnet->offen == 1)
-                    <button type="button" class="btn btn-success">Das Schwimmbad Ebrach ist gerade geöffnet!</button>
+                    <button type="button" class="btn btn-success btn-lg btn-block">Das Schwimmbad Ebrach ist gerade geöffnet!</button>
                 @else
-                    <button type="button" class="btn btn-danger">Das Schwimmbad Ebrach ist gerade geschlossen!</button>
+                    <button type="button" class="btn btn-danger  btn-lg btn-block">Das Schwimmbad Ebrach ist gerade geschlossen!</button>
                 @endif
             </div>
         </div>

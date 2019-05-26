@@ -13,5 +13,11 @@
 
 Route::get('/', function () {
     $geeoffnet = \App\Geeoffnet::first();
-    return view('welcome', compact('geeoffnet'));
+
+    $isadmin = request()->input('admin') == "true";
+
+    return view('welcome', [
+        'geeoffnet' => $geeoffnet,
+        'isadmin' => $isadmin
+    ]);
 });
