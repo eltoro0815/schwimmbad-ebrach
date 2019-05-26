@@ -20,6 +20,16 @@ Route::get('/', function () {
     {
         $geeoffnet->offen = !$geeoffnet->offen;
         $geeoffnet->save();
+
+        $message = "";
+        if ($geeoffnet->offen == 1)
+        {
+            $message = "Das Schwimmbad Ebrach hat gerade geöffnet";
+        }
+        else {
+            $message = "Das Schwimmbad Ebrach hat gerade geschlossen";
+        }
+        event(new GeeoffnetChanged($message));
     }
     
 
