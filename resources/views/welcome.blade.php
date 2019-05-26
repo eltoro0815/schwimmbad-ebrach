@@ -20,7 +20,7 @@
 
 <body>
 
-    <form action="{{ $url }}">
+    <form action="">
         @if ($isadmin == 1)
         <input type="hidden" name="admin" value="true">
         <input type="hidden" name="change" value="true">
