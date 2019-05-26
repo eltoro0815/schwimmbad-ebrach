@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+    <div id="app"></div>
     <form action="">
         @if ($isadmin == 1)
         <input type="hidden" name="admin" value="true">
