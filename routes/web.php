@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+
+/*
 use App\Events\GeeoffnetChanged;
 
 Route::get('/', function () {
@@ -55,3 +58,4 @@ Route::get('/', function () {
         'url' => $url
     ]);
 });
+*/
