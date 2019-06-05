@@ -13,12 +13,24 @@ use Illuminate\Http\Request;
 |
 */
 
+use App\Events\GeeoffnetChanged;
+use App\Geeoffnet;
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/mock', function (Request $request) {
+Route::get('/isopen', function (Request $request) {
+
+    $isopen = Geeoffnet::first();
+
     return array(
-      'msg' => 'Hello Laracon!'
+      'isopen' => $isopen->offen
     );
 });
+
+Route::get('/toggle', function (Request $request) {
+
+});
+
+
