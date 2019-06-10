@@ -21,7 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/isopen', function (Request $request) {
-
     $isopen = Geeoffnet::first();
 
     return array(
@@ -29,8 +28,29 @@ Route::get('/isopen', function (Request $request) {
     );
 });
 
-Route::get('/toggle', function (Request $request) {
+Route::put('/toggle', function (Request $request) {
+    $isopen = Geeoffnet::first();
 
+    $isopen->offen = !$isopen->offen;
+    $isopen->save();
+
+    $message = "";
+    if ($isopen->offen == 1) {
+        $message = "Das Schwimmbad Ebrach ist gerade geöffnet";
+    } else {
+        $message = "Das Schwimmbad Ebrach ist gerade geschlossen";
+    }
+    
+    $options = array(
+            'cluster' => 'eu',
+            'useTLS' => true
+          );
+    $pusher = new Pusher\Pusher(
+            'a756753461ffa40e21fa',
+            '1a7675ceb9c2b55af106',
+            '790650',
+            $options
+        );
+
+    $pusher->trigger('geoffnet-changed', 'geoffnet-event', $message);
 });
-
-

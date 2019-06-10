@@ -1,5 +1,17 @@
 <template>
   <div>
+    <div class="vld-parent">
+    <loading
+      :active.sync="isLoading"
+      :canCancel="canCancel"
+      :is-full-page="fullPage"
+      :height="height"
+      :width="width"
+      :color="color"
+      :loader="loader"
+      :background-color="bgColor"
+    ></loading>
+
     <div v-if="initDone">
       <button
         type="submit"
@@ -19,6 +31,8 @@
         </div>
       </button>
     </div>
+
+
     <div v-if="hasError">
       <button
         type="submit"
@@ -28,16 +42,40 @@
       </button>
     </div>
   </div>
+</div>
+
 </template>
 
 <script>
+
+// Import component
+import Loading from "vue-loading-overlay";
+// Import stylesheet
+import "vue-loading-overlay/dist/vue-loading.css";
+
 export default {
   name: "IsOpenMessage",
+
+  components: {
+    Loading
+  },
+
   data() {
     return {
       isopen: false,
       initDone: false,
-      hasError: false
+      hasError: false,
+
+      // Loading
+      isLoading: false,
+      fullPage: true,
+      canCancel: false,
+      useSlot: false,
+      loader: "spinner",
+      color: "#ff7f00",
+      bgColor: "#ffffff",
+      height: 128,
+      width: 128
     };
   },
   created() {
@@ -54,6 +92,8 @@ export default {
 
   methods: {
     toggle() {
+      this.isLoading = true;
+
       this.axios.put("/api/toggle");
     }
   },
