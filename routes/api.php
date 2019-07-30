@@ -30,7 +30,7 @@ Route::get('/isopen', function (Request $request) {
     );
 });
 
-Route::put('/toggle', function (Request $request) {
+Route::get('/toggle', function (Request $request) {
     $isopen = Geeoffnet::firstOrCreate(
         ['offen' => 0]
     );
