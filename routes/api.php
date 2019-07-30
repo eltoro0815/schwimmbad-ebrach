@@ -21,7 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/isopen', function (Request $request) {
-    $isopen = Geeoffnet::firstOrCreate();
+    $isopen = Geeoffnet::firstOrCreate(
+        ['id' => 1]
+    );
+
+    $isopen = $isopen->fresh();
 
     return array(
       'isopen' => $isopen->offen
@@ -29,7 +33,11 @@ Route::get('/isopen', function (Request $request) {
 });
 
 Route::get('/toggle', function (Request $request) {
-    $isopen = Geeoffnet::firstOrCreate();
+    $isopen = Geeoffnet::firstOrCreate(
+        ['id' => 1]
+    );
+
+    $isopen = $isopen->fresh();
 
     $isopen->offen = !$isopen->offen;
     $isopen->save();
