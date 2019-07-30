@@ -1,7 +1,7 @@
 module.exports = {
     // proxy API requests to Valet during development
     devServer: {
-      proxy: 'https://schwimmbad-ebrach.ddev.local'
+      proxy: 'https://schwimmbad-ebrach.ddev.site/'
     },
   
     // output built static files to Laravel's public dir.
