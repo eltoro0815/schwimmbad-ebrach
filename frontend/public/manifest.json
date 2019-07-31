@@ -1,6 +1,6 @@
 {
-  "name": "frontend",
-  "short_name": "frontend",
+  "name": "Kiosk geöffnet?",
+  "short_name": "Kiosk geöffnet?",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

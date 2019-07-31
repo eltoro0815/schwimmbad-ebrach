@@ -23,7 +23,7 @@
           <div class="row">
             <div class="col-3 align-self-center"></div>
             <div class="col-6">
-              <div class="container">Das Schwimmbad Ebrach ist gerade {{ statusText }}</div>
+              <div class="container">Der Kiosk im Schwimmbad Ebrach ist gerade {{ statusText }}</div>
             </div>
 
             <div class="col-3 align-self-center"></div>
