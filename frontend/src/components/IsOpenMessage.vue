@@ -17,7 +17,6 @@
         type="submit"
         class="btn btn-lg btn-block"
         v-bind:class="{'btn-success' : isopen, 'btn-danger' : !isopen}"
-        @click="toggle"
       >
         <div class="container">
           <div class="row">
@@ -90,14 +89,7 @@ export default {
       });
   },
 
-  methods: {
-    toggle() {
-      this.isLoading = true;
-
-      this.axios.put("/api/toggle");
-    }
-  },
-
+  
   computed: {
     statusText() {
       return this.isopen ? "geöffnet" : "geschlossen";

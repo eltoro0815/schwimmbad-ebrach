@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-    <IsOpenMessage/>
+    <Home/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import IsOpenMessage from "./components/IsOpenMessage.vue";
+
+import Home from "./components/Home.vue";
 
 @Component({
   components: {
-    IsOpenMessage
+    Home
   }
 })
+
 export default class App extends Vue {}
 </script>
 

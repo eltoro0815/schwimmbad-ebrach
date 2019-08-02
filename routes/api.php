@@ -16,9 +16,17 @@ use Illuminate\Http\Request;
 use App\Events\GeeoffnetChanged;
 use App\Geeoffnet;
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// create a user
+Route::post('user', 'UserController@createOrRetrieve');
+
+// create or update a subscription for a user
+Route::post('subscription', 'SubscriptionController@store');
+
+// delete a subscription for a user
+Route::post('subscription/delete', 'SubscriptionController@destroy');
+
+
+
 
 Route::get('/isopen', function (Request $request) {
     $isopen = Geeoffnet::firstOrCreate(
