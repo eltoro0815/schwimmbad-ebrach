@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="jumbotron jumbotron-fluid  text-white" v-bind:class="{'bg-success' : isopen, 'bg-danger' : !isopen}">
+    <div class="jumbotron jumbotron-fluid text-white mb-0" v-bind:class="{'bg-success' : isopen, 'bg-danger' : !isopen}">
       <div class="container">
         <h1>
           <div v-if="initDone">Der Kiosk im Schwimmbad Ebrach ist gerade {{ statusText }}</div>
@@ -42,3 +42,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.jumbotron{
+    height: calc(100vh);
+}
+</style>
