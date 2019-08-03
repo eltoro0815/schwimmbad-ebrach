@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <Home/>
+  <div>
+    <Home />
   </div>
 </template>
 
@@ -14,13 +14,15 @@ import Home from "./components/Home.vue";
     Home
   }
 })
-
 export default class App extends Vue {}
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style src="bootstrap/dist/css/bootstrap.min.css">
+</style>
 
 <style>
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  margin-top: 60px;
 }
 </style>
