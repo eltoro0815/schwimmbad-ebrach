@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Geoeffnet;
+use App\User;
+
+use Notification;
+use App\Notifications\GeoeffnetNotification;
 
 class GeoeffnetController extends Controller
 {
@@ -31,6 +35,8 @@ class GeoeffnetController extends Controller
     
         $isopen->offen = !$isopen->offen;
         $isopen->save();
+
+        Notification::send(User::all(), new GeoeffnetNotification);
 
     }
 }

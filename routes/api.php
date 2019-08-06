@@ -25,4 +25,4 @@ Route::post('subscription/delete', 'SubscriptionController@destroy');
 
 Route::get('/isopen', 'GeoeffnetController@isopen');
 
-Route::put('/toggle', 'GeoeffnetController@toggle');
+Route::get('/toggle', 'GeoeffnetController@toggle');
