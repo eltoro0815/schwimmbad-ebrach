@@ -80,6 +80,11 @@ self.addEventListener('push', (e) => {
 })
 
 // Close Notification
-self.addEventListener('notificationclick', function(event) {
-    event.notification.close();
+self.addEventListener('notificationclick', function (event) {
+    const clickedNotification = event.notification;
+    clickedNotification.close();
+
+    event.waitUntil(
+        clients.openWindow('https://developers.google.com/web/')
+    );
 })

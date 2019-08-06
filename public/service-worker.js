@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.2a89651d8366921b0d49a8fa37ab63e8.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.1e099e9f180c7690d71a3fc127bfc859.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // custom service-worker.js
 if (workbox) {
@@ -82,6 +82,11 @@ self.addEventListener('push', (e) => {
 })
 
 // Close Notification
-self.addEventListener('notificationclick', function(event) {
-    event.notification.close();
+self.addEventListener('notificationclick', function (event) {
+    const clickedNotification = event.notification;
+    clickedNotification.close();
+
+    event.waitUntil(
+        clients.openWindow('https://developers.google.com/web/')
+    );
 })
