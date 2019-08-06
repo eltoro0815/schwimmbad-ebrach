@@ -11,7 +11,9 @@ if (workbox) {
     // Make sure to return a specific response for all navigation requests.
     // Since we have a SPA here, this should be index.html always.
     // https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
-    workbox.routing.registerNavigationRoute('/index.html')
+    
+    // workbox.routing.registerNavigationRoute('/index.html')
+    // we do not use this to be able to simple test a get route
 
     // Setup cache strategy for Google Fonts. They consist of two parts, a static one
     // coming from fonts.gstatic.com (strategy CacheFirst) and a more ferquently updated on
@@ -79,12 +81,8 @@ self.addEventListener('push', (e) => {
     e.waitUntil(self.registration.showNotification(data.title, options))
 })
 
-// Close Notification
+// Close Notification if you click on it
 self.addEventListener('notificationclick', function (event) {
     const clickedNotification = event.notification;
     clickedNotification.close();
-
-    event.waitUntil(
-        clients.openWindow('https://developers.google.com/web/')
-    );
 })

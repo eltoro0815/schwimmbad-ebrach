@@ -15,6 +15,7 @@ provider: default
 use_dns_when_possible: true
 timezone: ""
 
+webimage_extra_packages: [php7.2-gmp]
 
 # This config.yaml was created with ddev version v1.9.1 
 # webimage: drud/ddev-webserver:v1.9.0

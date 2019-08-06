@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.1e099e9f180c7690d71a3fc127bfc859.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.702319c7de49f6f02cbd680a0d9995e3.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // custom service-worker.js
 if (workbox) {
@@ -13,7 +13,7 @@ if (workbox) {
     // Make sure to return a specific response for all navigation requests.
     // Since we have a SPA here, this should be index.html always.
     // https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
-    workbox.routing.registerNavigationRoute('/index.html')
+    // workbox.routing.registerNavigationRoute('/index.html')
 
     // Setup cache strategy for Google Fonts. They consist of two parts, a static one
     // coming from fonts.gstatic.com (strategy CacheFirst) and a more ferquently updated on
@@ -81,12 +81,8 @@ self.addEventListener('push', (e) => {
     e.waitUntil(self.registration.showNotification(data.title, options))
 })
 
-// Close Notification
+// Close Notification if you click on it
 self.addEventListener('notificationclick', function (event) {
     const clickedNotification = event.notification;
     clickedNotification.close();
-
-    event.waitUntil(
-        clients.openWindow('https://developers.google.com/web/')
-    );
 })
