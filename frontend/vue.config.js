@@ -12,5 +12,16 @@ module.exports = {
     // make sure to do this only in production.
     indexPath: process.env.NODE_ENV === 'production'
       ? '../resources/views/index.blade.php'
-      : 'index.html'
+      : 'index.html',
+
+      pwa: {
+        workboxPluginMode: 'InjectManifest',
+        workboxOptions: {
+            swSrc: 'src/service-worker.js',
+            exclude: [
+                /\.map$/, 
+                /manifest\.json$/ 
+            ],
+        }
+    },
   }
