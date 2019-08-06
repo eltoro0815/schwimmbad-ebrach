@@ -16,8 +16,8 @@ self.__precacheManifest = [
     "url": "/index.html"
   },
   {
-    "revision": "250f58a2b5dbd49ca94a59148520cbfb",
-    "url": "/img/autumn-forest.png"
+    "revision": "c9d176e0ef1cb8de6c96d8edc0652051",
+    "url": "/img/kiosk.png"
   },
   {
     "revision": "be84e3e2e7f560042cd8",
