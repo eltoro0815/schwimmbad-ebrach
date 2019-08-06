@@ -36,7 +36,9 @@ class GeoeffnetController extends Controller
         $isopen->offen = !$isopen->offen;
         $isopen->save();
 
-        Notification::send(User::all(), new GeoeffnetNotification);
-
+        if ($isopen->offen)
+        {
+            Notification::send(User::all(), new GeoeffnetNotification);
+        }
     }
 }
