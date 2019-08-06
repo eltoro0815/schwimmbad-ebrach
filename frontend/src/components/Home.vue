@@ -103,8 +103,6 @@ export default {
       this.serviceWorkerRegistration.showNotification("Benachrichtungen aktiviert!", {
         body: "Sie werden jetzt benachrichtigt, wenn der Kiosk im Schwimmbad Ebrach öffnet:)",
         icon: "/img/icons/android-chrome-192x192.png",
-        image: "/img/autumn-forest.png",
-        vibrate: [300, 200, 300],
         badge: "/img/icons/plint-badge-96x96.png"
       });
     },
