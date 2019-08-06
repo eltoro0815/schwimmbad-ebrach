@@ -73,9 +73,13 @@ self.addEventListener('push', (e) => {
     const options = {
         body: data.body,
         icon: data.icon,
-        actions: data.actions,
         badge: "/img/icons/kiosk-badge-96x96.png",
     }
 
     e.waitUntil(self.registration.showNotification(data.title, options))
+})
+
+// Close Notification
+self.addEventListener('notificationclick', function(event) {
+    event.notification.close();
 })

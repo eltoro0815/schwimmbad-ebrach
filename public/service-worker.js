@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.14f41d34a93040cc88ec8165c13363b9.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.2a89651d8366921b0d49a8fa37ab63e8.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // custom service-worker.js
 if (workbox) {
@@ -75,9 +75,13 @@ self.addEventListener('push', (e) => {
     const options = {
         body: data.body,
         icon: data.icon,
-        actions: data.actions,
         badge: "/img/icons/kiosk-badge-96x96.png",
     }
 
     e.waitUntil(self.registration.showNotification(data.title, options))
+})
+
+// Close Notification
+self.addEventListener('notificationclick', function(event) {
+    event.notification.close();
 })

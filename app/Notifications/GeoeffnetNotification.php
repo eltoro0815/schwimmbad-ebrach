@@ -37,9 +37,8 @@ class GeoeffnetNotification extends Notification
     public function toWebPush($notifiable, $notification)
     {
         return (new WebPushMessage)
-            ->title('I\'m Notification Title')
-            ->icon('/notification-icon.png')
-            ->body('Great, Push Notifications work!')
-            ->action('View App', 'notification_action');
+            ->title('Jetzt Geöffnet!')
+            ->icon('/img/icons/android-chrome-192x192.png')
+            ->body('Der Kiosk im Schwimmbad Ebrach wurde gerade geöffnet!');
     }
 }
