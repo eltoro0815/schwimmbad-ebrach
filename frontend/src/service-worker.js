@@ -73,7 +73,7 @@ self.addEventListener('push', (event) => {
     }
 
     let data = {};
-    
+
     try {
         data = event.data.json();
     }
@@ -82,7 +82,7 @@ self.addEventListener('push', (event) => {
         data.body = event.data.text();
         data.icon = "/img/icons/android-chrome-192x192.png";
     }
-    
+
 
     const options = {
         body: data.body,
@@ -100,4 +100,7 @@ self.addEventListener('notificationclick', function (event) {
     const clickedNotification = event.notification;
     clickedNotification.close();
 
+    event.waitUntil(
+        clients.openWindow('https://schwimmbad-ebrach.de/')
+    );
 })

@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.4a485c3f0be085d9a5ed07ca1c3afe1a.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.33eef389f4adc9ab2a3ee3ff181c3cad.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // custom service-worker.js
 if (workbox) {
@@ -75,7 +75,7 @@ self.addEventListener('push', (event) => {
     }
 
     let data = {};
-    
+
     try {
         data = event.data.json();
     }
@@ -84,7 +84,7 @@ self.addEventListener('push', (event) => {
         data.body = event.data.text();
         data.icon = "/img/icons/android-chrome-192x192.png";
     }
-    
+
 
     const options = {
         body: data.body,
@@ -102,4 +102,7 @@ self.addEventListener('notificationclick', function (event) {
     const clickedNotification = event.notification;
     clickedNotification.close();
 
+    event.waitUntil(
+        clients.openWindow('https://schwimmbad-ebrach.de/')
+    );
 })
