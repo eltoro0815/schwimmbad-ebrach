@@ -72,7 +72,8 @@ self.addEventListener('push', (e) => {
 
     const options = {
         body: data.body,
-        icon: "/img/icons/android-chrome-192x192.png",
+        icon: data.icon,
+        actions: data.actions,
         badge: "/img/icons/kiosk-badge-96x96.png",
     }
 

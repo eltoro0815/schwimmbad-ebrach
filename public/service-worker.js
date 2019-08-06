@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.ff922880abd267e80540110486924014.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.14f41d34a93040cc88ec8165c13363b9.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // custom service-worker.js
 if (workbox) {
@@ -74,7 +74,8 @@ self.addEventListener('push', (e) => {
 
     const options = {
         body: data.body,
-        icon: "/img/icons/android-chrome-192x192.png",
+        icon: data.icon,
+        actions: data.actions,
         badge: "/img/icons/kiosk-badge-96x96.png",
     }
 
