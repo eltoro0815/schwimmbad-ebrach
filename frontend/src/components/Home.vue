@@ -57,11 +57,11 @@ export default {
                 });
               })
               .then(() => {
-                this.showNotification();
+                this.showFirstNotification();
                 this.notificationsEnabled = true;
               });
           } else {
-            console.log("Home.vue: User did not granted permission");
+            console.log("Home.vue: User did not grant permission");
           }
         });
       }
@@ -99,9 +99,9 @@ export default {
       });
     },
 
-    showNotification() {
-      this.serviceWorkerRegistration.showNotification("Notifications granted", {
-        body: "Here is a first notification",
+    showFirstNotification() {
+      this.serviceWorkerRegistration.showNotification("Benachrichtungen aktiviert!", {
+        body: "Sie werden jetzt benachrichtigt, wenn der Kiosk im Schwimmbad Ebrach öffnet:)",
         icon: "/img/icons/android-chrome-192x192.png",
         image: "/img/autumn-forest.png",
         vibrate: [300, 200, 300],
