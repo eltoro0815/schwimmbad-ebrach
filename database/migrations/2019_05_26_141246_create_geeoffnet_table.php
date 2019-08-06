@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGeeoffnetTable extends Migration
+class CreateGeoeffnetTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateGeeoffnetTable extends Migration
      */
     public function up()
     {
-        Schema::create('geeoffnet', function (Blueprint $table) {
+        Schema::create('geoeffnet', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('offen')->default(false);
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGeeoffnetTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('geeoffnet');
+        Schema::dropIfExists('geoeffnet');
     }
 }

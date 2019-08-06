@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Geeoffnet extends Model
+class Geoeffnet extends Model
 {
-    protected $table = 'geeoffnet';
+    protected $table = 'geoeffnet';
 
     protected $fillable = ['id'];
 }

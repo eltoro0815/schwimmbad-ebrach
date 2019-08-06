@@ -13,8 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-use App\Events\GeeoffnetChanged;
-use App\Geeoffnet;
+use App\Geoeffnet;
 
 // create a user
 Route::post('user', 'UserController@createOrRetrieve');
@@ -29,7 +28,7 @@ Route::post('subscription/delete', 'SubscriptionController@destroy');
 
 
 Route::get('/isopen', function (Request $request) {
-    $isopen = Geeoffnet::firstOrCreate(
+    $isopen = Geoeffnet::firstOrCreate(
         ['id' => 1]
     );
 
@@ -41,7 +40,7 @@ Route::get('/isopen', function (Request $request) {
 });
 
 Route::put('/toggle', function (Request $request) {
-    $isopen = Geeoffnet::firstOrCreate(
+    $isopen = Geoeffnet::firstOrCreate(
         ['id' => 1]
     );
 
