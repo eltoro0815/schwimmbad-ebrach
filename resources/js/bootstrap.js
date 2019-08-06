@@ -36,22 +36,3 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
-
-
-// PUSHER
-
-window.Pusher = require('pusher-js');
-
-//Pusher.logToConsole = true;
-
-var pusher = new Pusher('a756753461ffa40e21fa', {
-    cluster: 'eu',
-    forceTLS: true
-});
-
-var channel = pusher.subscribe('geoffnet-changed');
-channel.bind('geoffnet-event', function(message) {
-
-    location.reload();
-    
-});
