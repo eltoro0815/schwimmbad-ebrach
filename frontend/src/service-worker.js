@@ -11,7 +11,7 @@ if (workbox) {
     // Make sure to return a specific response for all navigation requests.
     // Since we have a SPA here, this should be index.html always.
     // https://stackoverflow.com/questions/49963982/vue-router-history-mode-with-pwa-in-offline-mode
-    
+
     // workbox.routing.registerNavigationRoute('/index.html')
     // we do not use this to be able to simple test a get route
 
@@ -50,12 +50,12 @@ if (workbox) {
 }
 
 // This code listens for the user's confirmation to update the app.
-self.addEventListener('message', (e) => {
-    if (!e.data) {
+self.addEventListener('message', (event) => {
+    if (!event.data) {
         return;
     }
 
-    switch (e.data) {
+    switch (event.data) {
         case 'skipWaiting':
             self.skipWaiting();
             break;
@@ -66,11 +66,23 @@ self.addEventListener('message', (e) => {
 })
 
 // Listen to Push
-self.addEventListener('push', (e) => {
-    let data
-    if (e.data) {
-        data = e.data.json()
+self.addEventListener('push', (event) => {
+
+    if (!event.data) {
+        return;
     }
+
+    let data = {};
+    
+    try {
+        data = event.data.json();
+    }
+    catch {
+        data.title = "TestTitle";
+        data.body = event.data.text();
+        data.icon = "/img/icons/android-chrome-192x192.png";
+    }
+    
 
     const options = {
         body: data.body,
@@ -78,11 +90,14 @@ self.addEventListener('push', (e) => {
         badge: "/img/icons/kiosk-badge-96x96.png",
     }
 
-    e.waitUntil(self.registration.showNotification(data.title, options))
+    event.waitUntil(self.registration.showNotification(data.title, options));
+
 })
 
 // Close Notification if you click on it
 self.addEventListener('notificationclick', function (event) {
+
     const clickedNotification = event.notification;
     clickedNotification.close();
+
 })
