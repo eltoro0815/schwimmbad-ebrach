@@ -13,7 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-use App\Geoeffnet;
 
 // create a user
 Route::post('user', 'UserController@createOrRetrieve');
@@ -24,35 +23,6 @@ Route::post('subscription', 'SubscriptionController@store');
 // delete a subscription for a user
 Route::post('subscription/delete', 'SubscriptionController@destroy');
 
+Route::get('/isopen', 'GeoeffnetController@isopen');
 
-
-
-Route::get('/isopen', function (Request $request) {
-    $isopen = Geoeffnet::firstOrCreate(
-        ['id' => 1]
-    );
-
-    $isopen = $isopen->fresh();
-
-    return array(
-      'isopen' => $isopen->offen
-    );
-});
-
-Route::put('/toggle', function (Request $request) {
-    $isopen = Geoeffnet::firstOrCreate(
-        ['id' => 1]
-    );
-
-    $isopen = $isopen->fresh();
-
-    $isopen->offen = !$isopen->offen;
-    $isopen->save();
-
-    $message = "";
-    if ($isopen->offen == 1) {
-        $message = "Das Schwimmbad Ebrach ist gerade geöffnet";
-    } else {
-        $message = "Das Schwimmbad Ebrach ist gerade geschlossen";
-    }
-});
+Route::put('/toggle', 'GeoeffnetController@toggle');
