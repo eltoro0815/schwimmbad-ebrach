@@ -9,6 +9,7 @@ use App\User;
 
 use Notification;
 use App\Notifications\GeoeffnetNotification;
+use App\Notifications\GeschlossenNotification;
 
 class GeoeffnetController extends Controller
 {
@@ -25,7 +26,7 @@ class GeoeffnetController extends Controller
         );
     }
 
-    public function toggle(Request $request) 
+    public function toggle(Request $request)
     {
         $isopen = Geoeffnet::firstOrCreate(
             ['id' => 1]
@@ -36,9 +37,10 @@ class GeoeffnetController extends Controller
         $isopen->offen = !$isopen->offen;
         $isopen->save();
 
-        if ($isopen->offen)
-        {
+        if ($isopen->offen) {
             Notification::send(User::all(), new GeoeffnetNotification);
+        } else {
+            Notification::send(User::all(), new GeschlossenNotification);
         }
     }
 }

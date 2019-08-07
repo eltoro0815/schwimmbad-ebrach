@@ -100,11 +100,15 @@ export default {
     },
 
     showFirstNotification() {
-      this.serviceWorkerRegistration.showNotification("Benachrichtungen aktiviert!", {
-        body: "Sie werden jetzt benachrichtigt, wenn der Kiosk im Schwimmbad Ebrach öffnet:)",
-        icon: "/img/icons/android-chrome-192x192.png",
-        badge: "/img/icons/kiosk-badge-96x96.png"
-      });
+      this.serviceWorkerRegistration.showNotification(
+        "Benachrichtungen aktiviert!",
+        {
+          body:
+            "Sie werden jetzt benachrichtigt, wenn der Kiosk im Schwimmbad Ebrach öffnet:)",
+          icon: "/img/icons/android-chrome-192x192.png",
+          badge: "/img/icons/kiosk-badge-96x96.png"
+        }
+      );
     },
 
     findSubscription() {
@@ -140,6 +144,19 @@ export default {
   created() {
     if ("Notification" in window && "serviceWorker" in navigator) {
       this.notificationsSupported = true;
+    }
+
+    // Listen for a [REFRESH] command
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.addEventListener("message", function(event) {
+        if (event.data == "[REFRESH]") {
+          console.log("Client Received Message: " + event.data);
+
+          window.location.reload();
+        }
+
+        event.ports[0].postMessage("[REFRESHED]");
+      });
     }
   },
 

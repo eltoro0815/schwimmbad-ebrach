@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.33eef389f4adc9ab2a3ee3ff181c3cad.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.0c6790906daabac56d3201e9a3d76a54.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // custom service-worker.js
 if (workbox) {
@@ -53,6 +53,9 @@ if (workbox) {
 
 // This code listens for the user's confirmation to update the app.
 self.addEventListener('message', (event) => {
+
+    console.log("SW Received Message: " + event.data);
+
     if (!event.data) {
         return;
     }
@@ -94,6 +97,7 @@ self.addEventListener('push', (event) => {
 
     event.waitUntil(self.registration.showNotification(data.title, options));
 
+    event.waitUntil(send_refresh_message_to_all_clients());
 })
 
 // Close Notification if you click on it
@@ -102,7 +106,28 @@ self.addEventListener('notificationclick', function (event) {
     const clickedNotification = event.notification;
     clickedNotification.close();
 
-    event.waitUntil(
-        clients.openWindow('https://schwimmbad-ebrach.de/')
-    );
 })
+
+function send_refresh_message_to_client(client) {
+    return new Promise(function (resolve, reject) {
+        var msg_chan = new MessageChannel();
+
+        msg_chan.port1.onmessage = function (event) {
+            if (event.data.error) {
+                reject(event.data.error);
+            } else {
+                resolve(event.data);
+            }
+        };
+
+        client.postMessage("[REFRESH]", [msg_chan.port2]);
+    });
+}
+
+function send_refresh_message_to_all_clients() {
+    clients.matchAll({includeUncontrolled: true}).then(clients => {
+        clients.forEach(client => {
+            send_refresh_message_to_client(client);
+        })
+    })
+}

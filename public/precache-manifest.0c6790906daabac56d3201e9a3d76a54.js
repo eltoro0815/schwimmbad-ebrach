@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "1185f20d01ed1cdd3e96e2b9f0ff08fa",
-    "url": "/img/icons/kiosk-badge-96x96.png"
+    "revision": "98b614336d9a12cb3f7bedb001da6fca",
+    "url": "/img/icons/favicon-32x32.png.old"
   },
   {
     "revision": "2e6e5cb4ce5e729f7c944d0ab3904783",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/js/chunk-vendors.093da2cd.js"
   },
   {
-    "revision": "621d7e713c0d16faae47a9c863de634f",
+    "revision": "0d413730dc77af877b32b55778dc2191",
     "url": "/index.html"
   },
   {
@@ -24,16 +24,12 @@ self.__precacheManifest = [
     "url": "/img/icons/plint-badge-96x96.png.old"
   },
   {
-    "revision": "1a034e64d80905128113e5272a5ab95e",
-    "url": "/img/icons/apple-touch-icon-152x152.png.old"
-  },
-  {
     "revision": "936d6e411cabd71f0e627011c3f18fe2",
     "url": "/img/icons/apple-touch-icon-120x120.png.old"
   },
   {
-    "revision": "c43cd371a49ee4ca17ab3a60e72bdd51",
-    "url": "/img/icons/apple-touch-icon-180x180.png.old"
+    "revision": "1a034e64d80905128113e5272a5ab95e",
+    "url": "/img/icons/apple-touch-icon-152x152.png.old"
   },
   {
     "revision": "72a125a02b107c3ab4c5ef2abab5e569",
@@ -44,6 +40,10 @@ self.__precacheManifest = [
     "url": "/img/icons/apple-touch-icon-60x60.png.old"
   },
   {
+    "revision": "c43cd371a49ee4ca17ab3a60e72bdd51",
+    "url": "/img/icons/apple-touch-icon-180x180.png.old"
+  },
+  {
     "revision": "ba32bb7a2518eaa6960ed2d58f32a65c",
     "url": "/img/icons/apple-touch-icon-60x60.png"
   },
@@ -52,32 +52,32 @@ self.__precacheManifest = [
     "url": "/img/icons/apple-touch-icon.png.old"
   },
   {
-    "revision": "bfbb9ac180b9f81af36e08ac57143ef9",
-    "url": "/img/icons/favicon-16x16.png"
-  },
-  {
     "revision": "af28d69d59284dd202aa55e57227b11b",
     "url": "/img/icons/apple-touch-icon-76x76.png.old"
   },
   {
-    "revision": "09bfc1a0fa1237c0ceef0c02ad3b63e8",
-    "url": "/img/icons/favicon-32x32.png"
+    "revision": "4bb1a55479d61843b89a2fdafa7849b3",
+    "url": "/img/icons/favicon-16x16.png.old"
   },
   {
-    "revision": "98b614336d9a12cb3f7bedb001da6fca",
-    "url": "/img/icons/favicon-32x32.png.old"
-  },
-  {
-    "revision": "4d4b65e2869822fb5ca6",
-    "url": "/js/app.d39a1f8c.js"
+    "revision": "bfbb9ac180b9f81af36e08ac57143ef9",
+    "url": "/img/icons/favicon-16x16.png"
   },
   {
     "revision": "b89032a4a5a1879f30ba05a13947f26f",
     "url": "/img/icons/msapplication-icon-144x144.png.old"
   },
   {
-    "revision": "4bb1a55479d61843b89a2fdafa7849b3",
-    "url": "/img/icons/favicon-16x16.png.old"
+    "revision": "a0294e0efe61a6277028",
+    "url": "/js/app.40918b4a.js"
+  },
+  {
+    "revision": "09bfc1a0fa1237c0ceef0c02ad3b63e8",
+    "url": "/img/icons/favicon-32x32.png"
+  },
+  {
+    "revision": "1185f20d01ed1cdd3e96e2b9f0ff08fa",
+    "url": "/img/icons/kiosk-badge-96x96.png"
   },
   {
     "revision": "058a3335d15a3eb84e7ae3707ba09620",
@@ -92,12 +92,12 @@ self.__precacheManifest = [
     "url": "/img/icons/apple-touch-icon-120x120.png"
   },
   {
-    "revision": "e7b90cd13c0387b9dc53d183e452c5e0",
-    "url": "/img/icons/apple-touch-icon-152x152.png"
-  },
-  {
     "revision": "ad4efd783b6a62b8a4d06d79e9917e20",
     "url": "/img/icons/apple-touch-icon-180x180.png"
+  },
+  {
+    "revision": "e7b90cd13c0387b9dc53d183e452c5e0",
+    "url": "/img/icons/apple-touch-icon-152x152.png"
   },
   {
     "revision": "ad4efd783b6a62b8a4d06d79e9917e20",
@@ -108,12 +108,12 @@ self.__precacheManifest = [
     "url": "/img/icons/msapplication-icon-144x144.png"
   },
   {
-    "revision": "f22d501a35a87d9f21701cb031f6ea17",
-    "url": "/img/icons/safari-pinned-tab.svg"
-  },
-  {
     "revision": "4187e25c38b01ba388065fda4a3e33aa",
     "url": "/img/icons/mstile-150x150.png"
+  },
+  {
+    "revision": "f22d501a35a87d9f21701cb031f6ea17",
+    "url": "/img/icons/safari-pinned-tab.svg"
   },
   {
     "revision": "f130a0b70e386170cf6f011c0ca8c4f4",
@@ -132,7 +132,7 @@ self.__precacheManifest = [
     "url": "/css/chunk-vendors.b89365ac.css"
   },
   {
-    "revision": "4d4b65e2869822fb5ca6",
+    "revision": "a0294e0efe61a6277028",
     "url": "/css/app.5d6e5ae4.css"
   }
 ];
