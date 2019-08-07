@@ -14,7 +14,7 @@
         <div class="container mt-5 text-center">
           <img src="/img/qr-code.png" class="img-fluid" alt="QR Code" />
         </div>
-        <h4 class="text-center">QR-Code zum Teilen der App</h4>
+        <h5 class="text-center mt-2">QR-Code zum Teilen der App</h5>
       </div>
     </div>
   </div>
@@ -55,4 +55,5 @@ export default {
 .jumbotron {
   height: calc(100vh);
 }
+
 </style>
