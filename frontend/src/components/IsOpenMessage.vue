@@ -5,11 +5,16 @@
       v-bind:class="{'bg-success' : isopen, 'bg-danger' : !isopen}"
     >
       <div class="container">
-        <h1>
-          <div v-if="initDone">Der Kiosk im Schwimmbad Ebrach ist gerade {{ statusText }}</div>
+        <h1 class="text-center">
+          <div v-if="initDone">Der Kiosk im Schwimmbad Ebrach ist gerade {{ statusText }}!</div>
 
-          <div v-if="hasError">Der Service ist im Moment nicht verfübar</div>
+          <div v-if="hasError">Der Service ist im Moment nicht verfübar!</div>
         </h1>
+
+        <div class="container mt-5 text-center">
+          <img src="/img/qr-code.png" class="img-fluid" alt="QR Code" />
+        </div>
+        <h4 class="text-center">QR-Code zum Teilen der App</h4>
       </div>
     </div>
   </div>
