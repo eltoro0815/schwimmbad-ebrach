@@ -1,18 +1,26 @@
 <template>
   <div>
-    <IsOpenMessage />
+    <template v-if="!isadmin" >
+      <IsOpenMessage/>
+    </template>   
+
+    <template v-if="isadmin" >
+      <AdminForm />
+    </template>
   </div>
 </template>
 
 <script>
 import IsOpenMessage from "./IsOpenMessage.vue";
+import AdminForm from "./AdminForm.vue";
 import axios from "axios";
 
 export default {
   name: "home",
 
   components: {
-    IsOpenMessage
+    IsOpenMessage,
+    AdminForm
   },
 
   data() {
@@ -21,7 +29,8 @@ export default {
       notificationsEnabled: false,
       serviceWorkerRegistration: null,
       subscription: null,
-      message: null
+      message: null,
+      isadmin: false
     };
   },
 
@@ -174,6 +183,16 @@ export default {
 
         this.notificationsEnabled = true;
         this.subscription = sub;
+
+        axios
+          .post("api/user", {
+            username: localStorage.getItem("username")
+          })
+          .then(({ data }) => {
+            const { user } = data;
+            console.log("Home.vue: active user", user);
+            this.isadmin = user.isadmin;
+          });
       }
     });
   }
