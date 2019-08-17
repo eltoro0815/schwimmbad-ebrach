@@ -10,6 +10,7 @@
       :loader="loader"
       :background-color="bgColor"
     ></loading>
+
     <div>
       <div class="container mt-2">
         <h1 class="text-center text-white">
@@ -22,7 +23,9 @@
             @click="toggle"
             class="btn btn-block btn-lg"
             v-bind:class="{' btn-danger' : isopen, ' btn-success' : !isopen}"
-          >Auf {{changingText}} wechseln</button>
+          >
+            <h1>Klicken um auf {{changingText}} zu wechseln</h1>
+          </button>
         </div>
       </div>
     </div>
@@ -30,7 +33,6 @@
 </template>
 
 <script>
-
 // Import component
 import Loading from "vue-loading-overlay";
 // Import stylesheet
@@ -100,15 +102,32 @@ export default {
     },
 
     toggle() {
-      this.isLoading = true;
-      this.axios.put("api/toggle").then(() => {
-        this.isopen = !this.isopen;
-        this.isLoading = false;
-      });
+      this.$bvModal
+        .msgBoxConfirm("Wirklich auf '" + this.changingText + "' wechseln und Nachrichten an alle schicken?", {
+          okTitle: "Ja, auf '" + this.changingText + "' wechseln und Nachrichten an alle schicken!",
+          cancelTitle: "Nein, abbrechen!",
+          buttonSize: 'lg',
+        })
+        .then(value => {
+          //this.boxOne = value;
+          if (value === true) {
+            this.isLoading = true;
+            this.axios.put("api/toggle").then(() => {
+              this.isopen = !this.isopen;
+              this.isLoading = false;
+            });
+          }
+        })
+        .catch(err => {
+          // An error occurred
+        });
     }
   }
 };
 </script>
 
 <style>
+.btn-block {
+  padding: 10% 0;
+}
 </style>

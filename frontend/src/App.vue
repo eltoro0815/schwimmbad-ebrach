@@ -18,7 +18,10 @@ export default class App extends Vue {}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style src="bootstrap/dist/css/bootstrap.min.css">
+<style src="bootstrap/dist/css/bootstrap.css">
+</style>
+
+<style src="bootstrap-vue/dist/bootstrap-vue.css">
 </style>
 
 <style>
