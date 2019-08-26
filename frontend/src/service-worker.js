@@ -49,6 +49,12 @@ if (workbox) {
     );
 }
 
+function firstWindowClient() {
+    return clients.matchAll({ type: 'window' }).then(function (windowClients) {
+        return windowClients.length ? windowClients[0] : Promise.reject("No clients");
+    });
+}
+
 // This code listens for the user's confirmation to update the app.
 self.addEventListener('message', (event) => {
 
@@ -103,9 +109,22 @@ self.addEventListener('push', (event) => {
 // Close Notification if you click on it
 self.addEventListener('notificationclick', function (event) {
 
-    const clickedNotification = event.notification;
-    clickedNotification.close();
+    var notification = event.notification;
 
+    event.notification.close();
+
+    var promise = Promise.resolve();
+
+    // Try to focus
+    promise =
+        promise.then(function () { return firstWindowClient(); })
+            .then(function (client) { return client.focus(); });
+        
+
+    // If focus fails, open window
+    promise = promise.catch(function () { clients.openWindow("https://schwimmbad-ebrach.de/"); });
+
+    event.waitUntil(promise);
 })
 
 function send_refresh_message_to_client(client) {
@@ -125,7 +144,7 @@ function send_refresh_message_to_client(client) {
 }
 
 function send_refresh_message_to_all_clients() {
-    clients.matchAll({includeUncontrolled: true}).then(clients => {
+    clients.matchAll({ includeUncontrolled: true }).then(clients => {
         clients.forEach(client => {
             send_refresh_message_to_client(client);
         })
