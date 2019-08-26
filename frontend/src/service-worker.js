@@ -91,6 +91,8 @@ self.addEventListener('push', (event) => {
         body: data.body,
         icon: data.icon,
         badge: "/img/icons/kiosk-badge-96x96.png",
+        tag: 'message-group-1',
+        renotify: true
     }
 
     event.waitUntil(self.registration.showNotification(data.title, options));

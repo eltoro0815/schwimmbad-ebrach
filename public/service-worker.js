@@ -1,4 +1,4 @@
-importScripts("/precache-manifest.3732a7aa09da130ebc3a2b2567932936.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
+importScripts("/precache-manifest.74f19939e06a43fd6375f1b6f9b93988.js", "https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 // custom service-worker.js
 if (workbox) {
@@ -93,6 +93,8 @@ self.addEventListener('push', (event) => {
         body: data.body,
         icon: data.icon,
         badge: "/img/icons/kiosk-badge-96x96.png",
+        tag: 'message-group-1',
+        renotify: true
     }
 
     event.waitUntil(self.registration.showNotification(data.title, options));
